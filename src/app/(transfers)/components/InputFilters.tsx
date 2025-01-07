@@ -8,7 +8,7 @@ import { AlertContext } from '@/context/Alerts/AlertContext';
 interface Props {}
 
 const InputFilters: React.FC<Props> = ({}) => {
-    const { searchTerm, handleSearchChange, setTitle, setHeight } = useContext(TransferContext);
+    const { searchTerm, handleSearchChange, setTitle, setHeight, setTransferEdit, setFormType } = useContext(TransferContext);
     const { setOpenModal } = useContext(AlertContext);
     return (
         <Grid2
@@ -45,6 +45,8 @@ const InputFilters: React.FC<Props> = ({}) => {
                 variant='contained'
                 sx={{ order: { xs: 0, sm: 1 }, width: { xs: '100%', sm: '35%' }, mb: { xs: 2, sm: 0 } }}
                 onClick={() => {
+                    setTransferEdit(undefined);
+                    setFormType('create');
                     setTitle('Ingresa los datos');
                     setHeight(90);
                     setOpenModal(true);
