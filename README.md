@@ -18,6 +18,6 @@ Implemente Next Auth para el sistema de autenticación.
 
 1. Usuarios de prueba para autenticarse:
 
-    1.1 email: juan@gmail.com - password: Juan123@
+    1.1 email: juan@gmail.com - password: Juan123@ - rol: admin
 
-    1.2 email: pablo@gmail.com - password: Pablo123@
+    1.2 email: pablo@gmail.com - password: Pablo123@ - rol: viewer
