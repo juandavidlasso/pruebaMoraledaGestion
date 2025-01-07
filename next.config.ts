@@ -8,6 +8,12 @@ const nextConfig: NextConfig = {
             {
                 hostname: 'localhost',
                 port: '3000'
+            },
+            {
+                protocol: 'https',
+                port: '',
+                hostname: 'pruebaMoraledaGestion.com',
+                pathname: '/assets/**'
             }
         ],
         path: `${process.env.NEXT_PUBLIC_BASE_PATH}/_next/image`

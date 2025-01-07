@@ -1,4 +1,3 @@
-import { SessionProvider } from 'next-auth/react';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './Providers';
@@ -26,12 +25,10 @@ export default async function RootLayout({
         <html lang='en'>
             <title>Moraleda Gestión</title>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
-                <SessionProvider session={session}>
-                    <Providers>
-                        {session?.user.id && <NavBar user={session.user} />}
-                        {children}
-                    </Providers>
-                </SessionProvider>
+                <Providers session={session}>
+                    {session?.user.id && <NavBar user={session.user} />}
+                    {children}
+                </Providers>
             </body>
         </html>
     );

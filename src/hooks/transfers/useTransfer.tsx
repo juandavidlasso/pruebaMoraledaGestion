@@ -7,9 +7,10 @@ import { TransferContext } from '@/context/Transfers/TransferContext';
 import { AlertContext } from '@/context/Alerts/AlertContext';
 import { usersMock } from '@mocks/usersMock';
 import { TypeRole } from '@/lib/interfaces/auth';
+import { AuthContext } from '@/context/Auth/AuthContext';
 
 export const useTransfer = () => {
-    const session = useSession();
+    const { user } = useContext(AuthContext);
     const isMobile = useMediaQuery('(max-width:1024px)');
     const { transferData, setTransferEdit, setTitle, setHeight, setFormType } = useContext(TransferContext);
     const { setOpenModal } = useContext(AlertContext);
@@ -109,14 +110,14 @@ export const useTransfer = () => {
                 )
             }
         ];
-        if (session.data?.user.role === TypeRole.VIEWER) {
+        if (user?.role === TypeRole.VIEWER) {
             columns.pop();
         }
         return columns;
     };
 
     const handleSelectionChange = (rowSelectionModel: GridRowSelectionModel, details: GridCallbackDetails) => {
-        if (session.data?.user.role === TypeRole.VIEWER) return null;
+        if (user?.role === TypeRole.VIEWER) return null;
         const selectedRowId = rowSelectionModel[0];
         const selectedData = transferData.find((row) => row.id === selectedRowId);
         if (selectedData) {

@@ -1,17 +1,17 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Box, Grid2, Typography } from '@mui/material';
 import InputFilters from '@/app/(transfers)/components/InputFilters';
 import Transfers from '@/app/(transfers)/template';
 import TransferPopover from '@/app/(transfers)/components/TransferPopover';
-import { useSession } from 'next-auth/react';
 import { TypeRole } from '@/lib/interfaces/auth';
 import ModalLoading from '@/components/Modal';
+import { AuthContext } from '@/context/Auth/AuthContext';
 
 interface Props {}
 
 const Profile: React.FC<Props> = ({}) => {
-    const session = useSession();
+    const { user } = useContext(AuthContext);
     const [fetching, setFetching] = useState<boolean>(true);
 
     useEffect(() => {
@@ -30,7 +30,7 @@ const Profile: React.FC<Props> = ({}) => {
                             Listado de transferencias disponibles
                         </Typography>
                     </Grid2>
-                    {session.data?.user.role === TypeRole.ADMIN && <InputFilters />}
+                    {user?.role === TypeRole.ADMIN && <InputFilters />}
                     <Transfers />
                 </Grid2>
             </Box>
