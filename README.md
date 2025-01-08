@@ -14,10 +14,10 @@ Implemente Next Auth para el sistema de autenticación.
 
 5. Agregar el archivo `.env.local` y agregar las siguientes variables de entorno:
 
-AUTH_SECRET="/+jKd7GIEp35bz3xA+bFNQwT8kNHLL1iiYAhPdf9ql8="
-NEXT_PUBLIC_ENV=local
-NEXT_PUBLIC_BASE_PATH=http://localhost:3000
-NEXTAUTH_URL=http://localhost:3000
+    5.1 AUTH_SECRET="/+jKd7GIEp35bz3xA+bFNQwT8kNHLL1iiYAhPdf9ql8="
+    5.2 NEXT_PUBLIC_ENV=local
+    5.3 NEXT_PUBLIC_BASE_PATH=http://localhost:3000
+    5.4 NEXTAUTH_URL=http://localhost:3000
 
 6. Para probar el proyecto puede ejecutar el comando `npm run dev` para ejecutarlo en modo de desarrollo o puede ejecutar el comando `npm start` para ejecutarlo en modo de producción.
 
