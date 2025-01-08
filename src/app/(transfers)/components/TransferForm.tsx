@@ -99,7 +99,7 @@ const TransferForm: React.FC<Props> = ({}) => {
                         variant='contained'
                         fullWidth
                         disabled={submitting}
-                        sx={{ minHeight: '-webkit-fill-available' }}
+                        sx={{ height: '44px' }}
                     >
                         {submitting ? <Loading /> : formType === 'create' ? 'Registrar' : 'Actualizar'}
                     </Button>
